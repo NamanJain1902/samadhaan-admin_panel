@@ -259,76 +259,197 @@ class MessageBubble extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
+              BottomSheet(
+                // ignore: missing_return
+                builder: (BuildContext context) {
+                  SingleChildScrollView(
+                    child: Container(
+                      height: 10,
+                      width: 10,
+                    ),
+                  );
+                },
+              );
 //              _firestore
 //                  .collection("complaints")
 //                  .document(trackingId)
 //                  .updateData(
 //                {'colony': 'hi'},
 //              );
-              print('$email');
+              print('$address');
             },
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(20)),
-              padding: EdgeInsets.all(10.0),
+            child: Card(
+              elevation: 10,
+              color: Colors.grey[100],
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(
-                    'Complaint ID: $complaintId',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
+                  Container(
+                    color: Colors.blueGrey[700],
+                    child: Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        '#$complaintId',
+                        style: TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
-                  Text(
-                    'Name: $name',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
+                  Container(
+                    color: status == 'Processing' ? Colors.red : Colors.green,
+                    child: Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        '$status',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
-                  Text(
-                    'Phone Number: $phone',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Text(
-                    'Address: $address',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Text(
-                    'Date: $date',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Text(
-                    'Department: $department',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Text(
-                    'Remark: $remarks',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Text(
-                    'Status: $status',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black87,
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Name:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $name',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Phone Number:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $phone',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Address:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $address',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Date:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $date',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Department:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $department',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Complaint:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $complaint',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              'Remark:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              ' $remarks',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ],
